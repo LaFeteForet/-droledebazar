@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6e9d7;
+    text-align: center;
+    color: #222;
+}
+
+.page { display: none; padding: 20px; }
+.page.active { display: block; }
+
+.home-box, #page-menu {
+    background: #fff9e8;
+    padding: 30px;
+    width: 85%;
+    max-width: 500px;
+    margin: 40px auto;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+h1 { font-size: 40px; margin-bottom: 20px; }
+h2 { margin-bottom: 20px; }
+
+.phrase {
+    font-size: 18px;
+    margin-top: 5px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+    word-break: break-word;
+    white-space: normal;
+}
+
+/* Empêche "bois" d'être seul sur mobile */
+@media (max-width: 480px) {
+    .phrase {
+        max-width: 320px;      /* un poil plus large pour éviter le saut */
+        word-spacing: 3px;     /* étire les mots = évite le mot isolé */
+    }
+}
+
+/* Boutons */
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #ee80a8;
+    color: #fff;
+    transition: opacity 0.2s, transform 0.1s;
+}
+button:hover { opacity: 0.9; transform: scale(1.02); }
+
+#btn-toggle-sound {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    background: url('pictoson.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+/* Barre rouge du son */
+#sound-bar {
+    position: absolute;
+    bottom: 13px;
+    right: 20px;
+    width: 3px;
+    height: 36px;
+    background: red;
+    transform: rotate(-45deg);
+    display: none;
+}
+
+.gif-container img { width: 180px; }
+
+#chrono-rect {
+    background: #fff9e8;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#chrono-rect h2 { margin-bottom: 15px; }
+#chrono-rect .gif10 { width: 250px; margin-bottom: 15px; }
+#chrono { font-size: 56px; color: #4365ae; margin-bottom: 10px; }

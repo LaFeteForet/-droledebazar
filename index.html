@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drôle de Bazar</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* PAGE RÈGLES : PDF plein écran */
+  #page-rules {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #f6f6f6;
+      display: none;
+      z-index: 1000;
+  }
+
+  #page-rules.active { display: block; }
+
+  #page-rules iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+  }
+
+  #page-rules .btn-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1010;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      background: #ee80a8;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE ACTIVER MUSIQUE -->
+<div id="page-sound" class="page active">
+    <h2>Pour jouer à ce jeu, il est préférable d’activer le son.</h2>
+    <button id="btn-activate-sound">Activer la musique</button>
+</div>
+
+<!-- PAGE ACCUEIL -->
+<div id="page-home" class="page">
+    <div class="home-box">
+        <h1>Drôle de Bazar</h1>
+        <div class="gif-container">
+            <img src="Ours.gif" alt="Mascotte">
+        </div>
+        <p class="phrase">
+            Lorsque le rideau s’ouvrira, mémorise l’ordre des images en bois.<br>
+            Une fois qu’il se refermera, remets-les dans le bon ordre.
+        </p>
+        <button id="btn-play">Jouer</button>
+        <button id="btn-rules">Règles</button>
+        <img id="btn-toggle-sound" src="pictoson.png" alt="Volume">
+        <div id="sound-bar"></div>
+    </div>
+</div>
+
+<!-- PAGE MENU DIFFICULTÉ -->
+<div id="page-menu" class="page">
+    <h2>Choisis la difficulté</h2>
+    <p>
+        Tu as 3 niveaux de difficulté, qui déterminent le temps pendant lequel tu peux observer. 
+        Une fois le temps écoulé, la clochette sonnera et la personne derrière le rideau le refermera.
+    </p>
+    <button class="diff" data-sec="60">Facile (1 min)</button>
+    <button class="diff" data-sec="30">Moyen (30 s)</button>
+    <button class="diff" data-sec="10">Difficile (10 s)</button>
+    <button class="btn-back">Retour</button>
+</div>
+
+<!-- PAGE CHRONO -->
+<div id="page-game" class="page">
+    <div id="chrono-rect">
+        <h2>Observer</h2>
+        <img class="gif10" src="Gif10s.gif" alt="Gif chrono">
+        <div id="chrono">00:00</div>
+    </div>
+    <button id="btn-end-game" style="display:none;">Retour au menu</button>
+</div>
+
+<!-- PAGE RÈGLES : PDF plein écran -->
+<div id="page-rules">
+    <iframe src="Règle Drole de Bazar.pdf"></iframe>
+    <button class="btn-back">Retour</button>
+</div>
+
+<!-- Audio -->
+<audio id="bg-music" loop preload="auto" playsinline>
+    <source src="Msiquedroledebazar.mp3" type="audio/mpeg">
+</audio>
+<audio id="ding" preload="auto" playsinline>
+    <source src="https://www.orangefreesounds.com/wp-content/uploads/2021/03/Bell-ring-sound-effect.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+<script>
+  // Gestion ouverture et fermeture de la page règles
+  const btnRules = document.getElementById('btn-rules');
+  const pageRules = document.getElementById('page-rules');
+  const btnBackRules = pageRules.querySelector('.btn-back');
+
+  btnRules.addEventListener('click', () => {
+      pageRules.classList.add('active');
+  });
+
+  btnBackRules.addEventListener('click', () => {
+      pageRules.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>
